@@ -16,10 +16,10 @@ Example:
 If you use our code in your research, please cite following paper:
 ```
 @inproceedings{debrabandere16dynamic,
-  title={Dynamic Filter Networks},
-  author={De Brabandere, Bert and Jia, Xu and Tuytelaars, Tinne and Van Gool, Luc},
-  booktitle={NIPS},
-  year={2016}
+  author = {De Brabandere, Bert and Jia, Xu and Tuytelaars, Tinne and Van Gool, Luc},
+  title = {Dynamic Filter Networks},
+  booktitle = {NIPS},
+  year = {2016}
 }
 ```
 
