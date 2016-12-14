@@ -56,7 +56,7 @@ analyse_trained-baseline.ipynb
 ```
 
 ## Tensorflow implementation
-While we don't provide a full implementation of the experiments in tensorflow, an example dynamic filter layer can be found in `layers/dynamic_filter_layer_tensorflow.py`.
+A tensorflow implementation of the steerable filter experiment is available in `experiment_steerableFilter_tensorflow`. It also contains some inline comments on how you can easily adapt the code to do dynamic local filtering rather than dynamic convolution.
 
 # Results
 
