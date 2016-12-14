@@ -44,32 +44,33 @@ class DataHandler(object):
   def Reset(self):
     pass
 
-  def GetBatch(self, thetas=None, filter_size=9, sigma=1):
+  def GetBatch(self, thetas=None, filter_size=9, sigma=1, batch_size_=None):
 
+    if batch_size_ is None:
+        batch_size_ = self.batch_size_
 
     # import pdb; pdb.set_trace()
-    # images = np.random.rand(self.batch_size_, self.num_channels_, self.image_size_, self.image_size_, 1)
+    # images = np.random.rand(batch_size_, self.num_channels_, self.image_size_, self.image_size_, 1)
     if self.mode_ == 'standard':
-      ind = np.random.choice(self.num_backgrounds_, self.batch_size_)
+      ind = np.random.choice(self.num_backgrounds_, batch_size_)
       images = self.backgroundData_[ind, ..., np.newaxis]
     elif self.mode_ == 'random':
-      images = np.random.rand(self.batch_size_, self.num_channels_, self.image_size_, self.image_size_, 1)
+      images = np.random.rand(batch_size_, self.num_channels_, self.image_size_, self.image_size_, 1)
     else:
       assert false
 
     if thetas is None:
-      thetas = np.random.rand(self.batch_size_) * 2 * np.pi
-    thetasChannel = np.ones((self.batch_size_, 1, self.image_size_, self.image_size_, 1)) * thetas[..., np.newaxis, np.newaxis, np.newaxis, np.newaxis]
+      thetas = np.random.rand(batch_size_) * 2 * np.pi
+    thetasChannel = np.ones((batch_size_, 1, self.image_size_, self.image_size_, 1)) * thetas[..., np.newaxis, np.newaxis, np.newaxis, np.newaxis]
     # import pdb; pdb.set_trace()
 
-    filteredImages = np.zeros((self.batch_size_, self.num_channels_, self.image_size_, self.image_size_, 1))
-    for i in range(self.batch_size_):
+    filteredImages = np.zeros((batch_size_, self.num_channels_, self.image_size_, self.image_size_, 1))
+    for i in range(batch_size_):
       image = images[i].squeeze()
       theta = thetas[i]
       filteredImage = self.FilterWithTheta(image, theta, sigma, filter_size)
       # import pdb; pdb.set_trace()
       filteredImages[i, :, :, :, :] = filteredImage[None, None, :, :, None]
-
 
     output = np.concatenate((images, thetasChannel, filteredImages), axis=4)
     return output
