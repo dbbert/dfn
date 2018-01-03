@@ -56,7 +56,7 @@ analyse_trained-baseline.ipynb
 ```
 
 ## Tensorflow implementation
-A tensorflow implementation of the steerable filter experiment is available in `experiment_steerableFilter_tensorflow`. It also contains some inline comments on how you can easily adapt the code to do dynamic local filtering rather than dynamic convolution.
+A tensorflow implementation of the steerable filter experiment is available in `experiment_steerableFilter_tensorflow`. We have also added a basic tensorflow implementation of the bouncing mnist video prediction experiment in [experiment_bouncingMnistOriginal_tensorflow.ipynb](https://github.com/dbbert/dfn/blob/master/experiment_bouncingMnistOriginal_tensorflow.ipynb). Only training is implemented, no evaluation on the test set. There might be some small differences compared to the Lasagne implementation, so we cannot guarantee that you reach the same accuracy that is reported in the paper.  
 
 # Results
 
