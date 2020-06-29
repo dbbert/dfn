@@ -26,14 +26,7 @@ If you use our code in your research, please cite following paper:
 # Running the code
 
 * Install [Lasagne](https://lasagne.readthedocs.io/en/latest/user/installation.html) and its prerequisites.
-* Download the datasets and update the paths in the datasets/dataset_*.py files to point to them:
-```
-wget http://www.cs.toronto.edu/~emansim/datasets/mnist.h5
-wget https://homes.esat.kuleuven.be/~bdebraba/dfn/movingObjects.h5
-wget https://homes.esat.kuleuven.be/~bdebraba/dfn/highwayDriving_train.h5
-wget https://homes.esat.kuleuven.be/~bdebraba/dfn/highwayDriving_test.h5
-```
-
+* [Download the datasets](https://drive.google.com/file/d/1p7K9FBjQBwAbH4UOdLYy2FFBBDsTpF2g/view?usp=sharing) and update the paths in the datasets/dataset_*.py files to point to them.
 * Run the experiments:
 ```
 python experiment_steerableFilter.py
